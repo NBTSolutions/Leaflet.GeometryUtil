@@ -1,0 +1,25 @@
+{
+  "name": "leaflet-geometryutil",
+  "description": "Leaflet utility functions on geometries",
+  "main": "src/leaflet.geometryutil.js",
+  "authors": [
+    "haoliangyu <njkon@foxmail.com>"
+  ],
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "Leaflet",
+    "GIS"
+  ],
+  "homepage": "https://github.com/NBTSolutions/Leaflet.GeometryUtil",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": ">=0.7.0",
+    "cheap-ruler-bower": "*"
+  }
+}
