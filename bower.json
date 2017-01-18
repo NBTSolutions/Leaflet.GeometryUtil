@@ -19,7 +19,6 @@
     "tests"
   ],
   "dependencies": {
-    "leaflet": ">=0.7.0",
-    "cheap-ruler-bower": "*"
+    "leaflet": ">=0.7.0"
   }
 }
