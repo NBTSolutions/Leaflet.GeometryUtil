@@ -17,7 +17,7 @@
 }(function (L) {
 "use strict";
 
-L.Polyline._flat = L.Polyline._flat || function (latlngs) {
+L.Polyline._flat = L.LineUtil.isFlat || L.Polyline._flat || function (latlngs) {
     // true if it's a flat array of latlngs; false if nested
     return !L.Util.isArray(latlngs[0]) || (typeof latlngs[0][0] !== 'object' && typeof latlngs[0][0] !== 'undefined');
 };
@@ -211,7 +211,7 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
         if (layer instanceof L.Polygon) {
             // add the last segment for each child that is a nested array
             var addLastSegment = function(latlngs) {
-                if (L.Polyline._flat(latlngs)) {
+                if (L.LineUtil.isFlat(latlngs)) {
                     latlngs.push(latlngs[0]);
                 } else {
                     for (var i = 0; i < latlngs.length; i++) {
@@ -224,7 +224,7 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
 
         // we have a multi polygon / multi polyline / polygon with holes
         // use recursive to explore and return the good result
-        if ( ! L.Polyline._flat(latlngs) ) {
+        if ( ! L.LineUtil.isFlat(latlngs) ) {
 
             for (var i = 0; i < latlngs.length; i++) {
                 // if we are at the lower level, and if we have a L.Polygon, we add the last segment
